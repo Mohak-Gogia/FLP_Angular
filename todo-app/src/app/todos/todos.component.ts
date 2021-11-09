@@ -1,3 +1,4 @@
+import { TodoService } from './../todo.service';
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './../models/Todo'
 
@@ -12,34 +13,24 @@ export class TodosComponent implements OnInit {
 
   inputTodo:string = "";
 
-  constructor() { }
+  constructor(private todoservice: TodoService) { }
 
-  ngOnInit(): void {
-    this.todos = [
-      {
-        content: "Learn Angular",
-        completed: false
-      },
-      {
-        content: "Learn Dot Net",
-        completed: true
-      }
-      
-    ]
+  ngOnInit() {
+    this.todos = this.todoservice.fetchTodo();
   }
 
   addTodo () {
-    this.todos.push({
-      content: this.inputTodo,
-      completed: false
-    });
-
+    let new_todo = new Todo;
+    new_todo.content = this.inputTodo;
+    new_todo.completed = false;
+    this.todoservice.addTodo(new_todo);
     this.inputTodo = "";
   }
 
 
   deleteTodo(id: number){
-    this.todos = this.todos.filter((v, i) => i !== id);
+    this.todoservice.deleteTodo(id);
+    this.todos =  this.todoservice.fetchTodo();
   }
 
 }
