@@ -1,0 +1,21 @@
+<div class="todos">
+	<div class="input">
+		<form (submit)="addTodo()">
+			<input 
+				type="text"
+				name="inputTodo"
+				placeholder="Type your todo here..."
+				class="todo-input"
+				[(ngModel)]="inputTodo"
+			/>
+			<input type="submit" value="Add Todo" class="todo-submit" />
+		</form>
+	</div>
+
+	<div class="todo" *ngFor="let todo of todos; let i = index" >
+		<div class="id">{{ i+1 }}</div>
+		<div class="content">{{ todo.content }}</div>
+		<i class="fas fa-trash-alt" (click)="deleteTodo(i)"></i>
+	</div>
+   
+</div>

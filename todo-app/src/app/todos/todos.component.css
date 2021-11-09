@@ -1,0 +1,40 @@
+.todo {
+	display: flex;
+	padding: 10px 15px;
+	border-bottom: 1px solid rgb(29, 25, 25);
+	width: 80%;
+	margin: auto;
+}
+
+.todo:last-of-type {
+	border-bottom: 0;
+}
+
+.todo .id {
+	flex: 1 1 50px;
+}
+
+.todo .content {
+	flex: 1 1 100%;
+}
+
+.todo-input {
+	display: block;
+	width: 80%;
+	padding: 10px 15px;
+	background-color: #f3f3f3;
+	font-size: 20px;
+	margin: 15px auto;
+	border-radius: 20px;
+}
+
+.todo-submit {
+	display: block;
+	border: none;
+	background-color: #FE4880;
+	color: #FFF;
+	margin: 15px auto;
+	padding: 10px 15px;
+	font-size: 18px;
+	font-weight: 700;
+}
